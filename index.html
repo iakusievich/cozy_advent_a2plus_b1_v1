@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cozy Winter English: A2+–B1 Advent Calendar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================================
+       COZY MULLED WINE, DEEP PINE & WARM HONEY GOLD PALETTE (A2+–B1 EDITION)
+       ========================================================================= */
+    :root {
+      --bg-pine-deep: #071910;
+      --bg-pine: #0d2818;
+      --bg-pine-light: #163e27;
+      --cranberry: #7f1d1d;
+      --mulled-wine: #991b1b;
+      --mulled-bright: #b91c1c;
+      --honey-gold: #f59e0b;
+      --honey-light: #fbbf24;
+      --honey-glow: #fde68a;
+      --parchment: #fffbeb;
+      --parchment-warm: #fef3c7;
+      --plum-velvet: #581c87;
+      --plum-deep: #3b0764;
+      --text-light: #ffffff;
+      --text-cream: #fef3c7;
+      --text-ink: #1e293b;
+      --card-shadow: 0 14px 30px -8px rgba(0, 0, 0, 0.55);
+      --gold-ring: 0 0 24px rgba(251, 191, 36, 0.48);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 50% 0%, var(--bg-pine-light) 0%, var(--bg-pine) 50%, var(--bg-pine-deep) 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    /* Warm Festive Top & Bottom Trim */
+    .festive-trim {
+      height: 8px;
+      width: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        #991b1b,
+        #991b1b 16px,
+        #f59e0b 16px,
+        #f59e0b 32px,
+        #0d2818 32px,
+        #0d2818 48px,
+        #fffbeb 48px,
+        #fffbeb 64px
+      );
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Snowfall & Confetti Canvases */
+    #snowCanvas, #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    #snowCanvas { z-index: 1; }
+    #confettiCanvas { z-index: 100; }
+
+    /* Twinkling Warm Fairy Lights */
+    .fairy-lights {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.7rem 0.5rem 0;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .bulb {
+      width: 11px;
+      height: 18px;
+      border-radius: 50% 50% 50% 50% / 35% 35% 65% 65%;
+      position: relative;
+      animation: warmTwinkle 2.4s infinite alternate ease-in-out;
+    }
+
+    .bulb::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: 2.5px;
+      width: 6px;
+      height: 5px;
+      background: #1f2937;
+      border-radius: 2px;
+    }
+
+    .bulb:nth-child(4n+1) { background: #fde047; box-shadow: 0 0 14px #fde047; animation-delay: 0s; }
+    .bulb:nth-child(4n+2) { background: #fb7185; box-shadow: 0 0 14px #fb7185; animation-delay: 0.6s; }
+    .bulb:nth-child(4n+3) { background: #34d399; box-shadow: 0 0 14px #34d399; animation-delay: 1.2s; }
+    .bulb:nth-child(4n+4) { background: #fbbf24; box-shadow: 0 0 14px #fbbf24; animation-delay: 1.8s; }
+
+    @keyframes warmTwinkle {
+      0% { opacity: 0.48; transform: scale(0.94); }
+      100% { opacity: 1; transform: scale(1.08); }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 3.25rem;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 1.85rem;
+    }
+
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--mulled-wine), var(--cranberry));
+      border: 1.5px solid var(--honey-gold);
+      color: var(--parchment);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.38rem 1.1rem;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(127, 29, 29, 0.5);
+      margin-bottom: 0.85rem;
+    }
+
+    h1 {
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(2rem, 4.4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      text-shadow: 0 3px 0 #3f0d0d, 0 10px 24px rgba(0, 0, 0, 0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 span {
+      color: var(--honey-glow);
+      font-style: italic;
+    }
+
+    .subtitle {
+      color: #d1fae5;
+      font-size: 1.02rem;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+    }
+
+    /* Progress Bar Card */
+    .progress-card {
+      max-width: 580px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, rgba(127, 29, 29, 0.94), rgba(69, 10, 10, 0.96));
+      border: 1.5px solid var(--honey-gold);
+      border-radius: 20px;
+      padding: 1rem 1.4rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.55rem;
+      color: var(--parchment);
+    }
+
+    .progress-count {
+      background: var(--honey-light);
+      color: #451a03;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 12px;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 999px;
+      padding: 2px;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f59e0b 0%, #fde047 50%, #34d399 100%);
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Responsive Calendar Grid: 6 desktop, 4 tablet, 2 mobile */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.1rem;
+      margin-top: 2.1rem;
+    }
+
+    @media (max-width: 980px) {
+      .calendar-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .calendar-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+      }
+    }
+
+    /* Festive Door Cards */
+    .door {
+      position: relative;
+      aspect-ratio: 1 / 1.15;
+      border-radius: 20px;
+      padding: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      border: 2px solid rgba(254, 243, 199, 0.25);
+      box-shadow: var(--card-shadow);
+      transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.24s ease, border-color 0.24s ease;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    .door.theme-cranberry {
+      background: linear-gradient(155deg, #991b1b 0%, #631111 100%);
+    }
+    .door.theme-pine {
+      background: linear-gradient(155deg, #14532d 0%, #092c17 100%);
+    }
+    .door.theme-honey {
+      background: linear-gradient(155deg, #b45309 0%, #78350f 100%);
+    }
+    .door.theme-velvet {
+      background: linear-gradient(155deg, #6b21a8 0%, #3b0764 100%);
+    }
+
+    .door::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 64%);
+      pointer-events: none;
+    }
+
+    .door:hover:not(.locked) {
+      transform: translateY(-5px) scale(1.025);
+      border-color: var(--honey-glow);
+      box-shadow: var(--gold-ring), 0 18px 30px -6px rgba(0, 0, 0, 0.6);
+    }
+
+    .door.locked {
+      filter: saturate(0.55) brightness(0.75);
+      cursor: not-allowed;
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .door.opened {
+      border-color: var(--honey-glow);
+    }
+
+    .door.completed {
+      background: linear-gradient(155deg, var(--parchment) 0%, var(--parchment-warm) 100%);
+      color: var(--text-ink);
+      border: 2.5px solid var(--honey-gold);
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+    }
+
+    .door.today-highlight:not(.completed) {
+      border: 2.5px solid #fde047;
+      box-shadow: 0 0 0 3px rgba(253, 224, 71, 0.32), 0 12px 25px rgba(0, 0, 0, 0.55);
+    }
+
+    .door-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .door-num {
+      background: rgba(0, 0, 0, 0.34);
+      color: #ffffff;
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      min-width: 35px;
+      height: 35px;
+      padding: 0 0.45rem;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid rgba(254, 243, 199, 0.35);
+    }
+
+    .door.completed .door-num {
+      background: var(--cranberry);
+      color: var(--parchment);
+      border-color: var(--mulled-wine);
+    }
+
+    .door-status {
+      font-size: 0.88rem;
+      background: rgba(255, 255, 255, 0.2);
+      width: 29px;
+      height: 29px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    .door.completed .door-status {
+      background: #15803d;
+      color: #ffffff;
+    }
+
+    .door-art {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      z-index: 1;
+      filter: drop-shadow(0 4px 7px rgba(0, 0, 0, 0.32));
+      transition: transform 0.25s ease;
+    }
+
+    .door:hover:not(.locked) .door-art {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    .door-title {
+      font-size: 0.79rem;
+      font-weight: 700;
+      line-height: 1.25;
+      z-index: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 2em;
+    }
+
+    .door-tag {
+      font-size: 0.64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      z-index: 1;
+    }
+
+    .door.completed .door-tag {
+      background: #15803d;
+      color: #ffffff;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-5px) rotate(-1.5deg); }
+      40% { transform: translateX(5px) rotate(1.5deg); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+
+    .shake {
+      animation: shake 0.34s ease-in-out;
+    }
+
+    /* =========================================================================
+       WARM PARCHMENT MISSION MODAL
+       ========================================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 15, 9, 0.84);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: linear-gradient(170deg, var(--parchment) 0%, var(--parchment-warm) 100%);
+      color: var(--text-ink);
+      border: 3.5px solid var(--cranberry);
+      border-radius: 26px;
+      width: 100%;
+      max-width: 580px;
+      padding: 1.8rem;
+      box-shadow: 0 0 0 4px var(--honey-gold), 0 28px 55px rgba(0, 0, 0, 0.68);
+      transform: scale(0.94) translateY(12px);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.active .modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--cranberry);
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .modal-close:hover {
+      transform: scale(1.08) rotate(90deg);
+      background: var(--mulled-wine);
+    }
+
+    .modal-top {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+      padding-right: 2.2rem;
+    }
+
+    .modal-art {
+      width: 76px;
+      height: 76px;
+      flex-shrink: 0;
+      background: linear-gradient(145deg, var(--bg-pine-light), var(--bg-pine));
+      border: 3px solid var(--honey-gold);
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      padding: 0.6rem;
+      box-shadow: 0 8px 18px rgba(7, 25, 16, 0.35);
+    }
+
+    .modal-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.24rem 0.7rem;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pill-day {
+      background: var(--cranberry);
+      color: #ffffff;
+    }
+
+    .pill-cat {
+      background: #14532d;
+      color: #ffffff;
+    }
+
+    .pill-time {
+      background: #fde68a;
+      color: #78350f;
+      border: 1px solid #f59e0b;
+    }
+
+    .modal-title {
+      font-family: "Lora", Georgia, serif;
+      font-size: 1.48rem;
+      font-weight: 700;
+      color: var(--cranberry);
+      line-height: 1.22;
+    }
+
+    .modal-mission {
+      font-size: 1.03rem;
+      line-height: 1.62;
+      color: #1e293b;
+      background: #ffffff;
+      border: 2px dashed var(--mulled-wine);
+      border-radius: 16px;
+      padding: 1.2rem;
+      margin-bottom: 1.05rem;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    /* B1 Phrases & Connectors Helper Box */
+    .vocab-box {
+      margin-bottom: 1.3rem;
+    }
+
+    .vocab-toggle {
+      background: #fef3c7;
+      border: 1.5px solid #f59e0b;
+      color: #92400e;
+      font-size: 0.87rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.48rem 1rem;
+      border-radius: 999px;
+      transition: background 0.18s ease, transform 0.15s ease;
+    }
+
+    .vocab-toggle:hover {
+      background: #fde68a;
+    }
+
+    .vocab-content {
+      display: none;
+      margin-top: 0.65rem;
+      font-size: 0.92rem;
+      color: #064e3b;
+      background: #ecfdf5;
+      border-left: 4px solid #15803d;
+      padding: 0.9rem 1.05rem;
+      border-radius: 0 14px 14px 0;
+      line-height: 1.6;
+    }
+
+    .vocab-content.visible {
+      display: block;
+    }
+
+    .vocab-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .vocab-chip {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #6ee7b7;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.18rem 0.6rem;
+      border-radius: 8px;
+    }
+
+    .vocab-starter {
+      font-style: italic;
+      color: #14532d;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 0.55rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid #a7f3d0;
+    }
+
+    .vocab-starter strong {
+      font-style: normal;
+      color: #065f46;
+    }
+
+    .btn-complete {
+      width: 100%;
+      padding: 0.95rem 1.25rem;
+      border-radius: 14px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform 0.15s ease, filter 0.2s ease;
+      background: linear-gradient(135deg, #15803d, #14532d);
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(20, 83, 45, 0.38);
+    }
+
+    .btn-complete:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.07);
+    }
+
+    .btn-complete.is-done {
+      background: linear-gradient(135deg, #f59e0b, #b45309);
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(180, 83, 9, 0.35);
+    }
+
+    /* Inline Footer Confirmation Bar */
+    .confirm-bar {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--cranberry);
+      border: 1px solid var(--honey-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--parchment);
+    }
+
+    .confirm-bar.visible {
+      display: inline-flex;
+    }
+
+    .confirm-yes, .confirm-no {
+      border: none;
+      border-radius: 999px;
+      padding: 0.22rem 0.65rem;
+      font-weight: 700;
+      font-size: 0.76rem;
+      cursor: pointer;
+    }
+
+    .confirm-yes {
+      background: var(--honey-light);
+      color: #451a03;
+    }
+
+    .confirm-no {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 4.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: linear-gradient(135deg, var(--mulled-wine), #450a0a);
+      color: #ffffff;
+      border: 1.5px solid var(--honey-gold);
+      padding: 0.68rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 60;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(5, 18, 11, 0.94);
+      border-top: 1.5px solid rgba(251, 191, 36, 0.35);
+      padding: 0.95rem 1.25rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.85rem;
+      color: #a7f3d0;
+    }
+
+    .footer-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .toggle-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--honey-glow);
+      background: rgba(251, 191, 36, 0.14);
+      border: 1px solid rgba(251, 191, 36, 0.42);
+      padding: 0.36rem 0.88rem;
+      border-radius: 999px;
+    }
+
+    .toggle-label input {
+      accent-color: #fbbf24;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .btn-reset {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #fecdd3;
+      padding: 0.38rem 0.88rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-reset:hover {
+      background: rgba(153, 27, 27, 0.35);
+      border-color: #fb7185;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Festive Trim -->
+  <div class="festive-trim"></div>
+
+  <!-- Twinkling Fairy Lights -->
+  <div class="fairy-lights" aria-hidden="true">
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+  </div>
+
+  <!-- Snowfall & Confetti Canvases -->
+  <canvas id="snowCanvas"></canvas>
+  <canvas id="confettiCanvas"></canvas>
+
+  <div class="container">
+    <header>
+      <div class="level-badge">🕯️ December Cozy Challenge • Level A2+–B1 ✨</div>
+      <h1>24 Days of <span>Cozy Winter</span> English</h1>
+      <p class="subtitle">
+        Atmospheric daily prompts, storytelling, and warm conversations for adult learners — packed with natural B1 idioms, phrasal verbs, and connectors.
+      </p>
+
+      <div class="progress-card">
+        <div class="progress-header">
+          <span>🎄 Your December Journey</span>
+          <span class="progress-count" id="progressText">0 / 24 Completed</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="calendar-grid" id="calendarGrid" aria-label="24-Day A2+ to B1 Cozy Winter Advent Calendar"></main>
+  </div>
+
+  <!-- Mission Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+
+      <div class="modal-top">
+        <div class="modal-art" id="modalArt"></div>
+        <div>
+          <div class="modal-badges">
+            <span class="pill pill-day" id="modalDay">Day 1</span>
+            <span class="pill pill-cat" id="modalCategory">Category</span>
+            <span class="pill pill-time" id="modalDuration">⏱ 8 mins</span>
+          </div>
+          <h2 class="modal-title" id="modalTitle">Mission Title</h2>
+        </div>
+      </div>
+
+      <div class="modal-mission" id="modalMission">Mission prompt goes here.</div>
+
+      <div class="vocab-box">
+        <button class="vocab-toggle" id="vocabToggle" type="button">✨ Show B1 Phrases & Connectors</button>
+        <div class="vocab-content" id="vocabContent">
+          <div class="vocab-list" id="vocabList"></div>
+          <div class="vocab-starter"><strong>Sentence Starter:</strong> <span id="vocabStarter"></span></div>
+        </div>
+      </div>
+
+      <button class="btn-complete" id="btnComplete" type="button">Mark Mission Complete</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Locked until December!</div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>☕ Open one cozy window a day in December to stretch your spoken or written English.</div>
+      <div class="footer-controls">
+        <label class="toggle-label" title="Unlock all 24 doors right now to preview or use in class">
+          <input type="checkbox" id="previewToggle" />
+          <span>Preview / Unlock All</span>
+        </label>
+        <button class="btn-reset" id="resetBtn" type="button">Reset Progress</button>
+        <div class="confirm-bar" id="confirmBar">
+          <span>Reset all 24 days?</span>
+          <button class="confirm-yes" id="confirmYes" type="button">Yes</button>
+          <button class="confirm-no" id="confirmNo" type="button">No</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bottom Festive Trim -->
+  <div class="festive-trim"></div>
+
+  <script>
+    // =========================================================================
+    // 24 BESPOKE COZY WINTER & FESTIVE INLINE SVG ILLUSTRATIONS
+    // =========================================================================
+    const COZY_SVGS = {
+      // 1. Steaming mug with cinnamon stick
+      1: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M16 26 H44 V44 C44 51, 38 55, 30 55 C22 55, 16 51, 16 44 Z" fill="#991b1b" stroke="#fde68a" stroke-width="2"/><path d="M44 30 H50 A4.5 4.5 0 0 1 50 42 H44" fill="none" stroke="#fde68a" stroke-width="3.5"/><rect x="33" y="16" width="4.5" height="15" rx="2" transform="rotate(20 33 16)" fill="#b45309"/><path d="M23 18 Q21 12 24 7 M30 16 Q28 10 31 5" stroke="#fffbeb" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`,
+      // 2. Cozy fireplace
+      2: `<svg viewBox="0 0 64 64" width="100%" height="100%"><rect x="12" y="20" width="40" height="34" rx="3" fill="#7f1d1d" stroke="#fde68a" stroke-width="2"/><rect x="9" y="15" width="46" height="5" rx="2" fill="#78350f"/><path d="M22 54 V36 A10 10 0 0 1 42 36 V54 Z" fill="#0f172a"/><path d="M32 33 C37 40, 36 48, 32 48 C28 48, 27 40, 32 33 Z" fill="#fbbf24"/></svg>`,
+      // 3. Vinyl record & headphones
+      3: `<svg viewBox="0 0 64 64" width="100%" height="100%"><circle cx="32" cy="34" r="17" fill="#1e293b" stroke="#fbbf24" stroke-width="2.5"/><circle cx="32" cy="34" r="6" fill="#991b1b"/><circle cx="32" cy="34" r="2" fill="#fffbeb"/><path d="M14 34 A18 18 0 0 1 50 34" fill="none" stroke="#fde68a" stroke-width="3.5" stroke-linecap="round"/><rect x="10" y="30" width="6" height="11" rx="3" fill="#f59e0b"/><rect x="48" y="30" width="6" height="11" rx="3" fill="#f59e0b"/></svg>`,
+      // 4. Open journal with fountain pen
+      4: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M12 18 Q22 15 32 20 Q42 15 52 18 V48 Q42 45 32 50 Q22 45 12 48 Z" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/><line x1="32" y1="20" x2="32" y2="50" stroke="#d97706" stroke-width="2"/><line x1="17" y1="26" x2="27" y2="26" stroke="#94a3b8" stroke-width="2"/><line x1="17" y1="33" x2="27" y2="33" stroke="#94a3b8" stroke-width="2"/><path d="M44 12 L52 20 L40 32 L36 33 L37 29 Z" fill="#991b1b" stroke="#fde68a" stroke-width="1.5"/></svg>`,
+      // 5. Snow-covered cabin
+      5: `<svg viewBox="0 0 64 64" width="100%" height="100%"><polygon points="32,12 11,31 53,31" fill="#991b1b" stroke="#ffffff" stroke-width="3"/><rect x="17" y="31" width="30" height="22" rx="2" fill="#78350f" stroke="#fde68a" stroke-width="1.5"/><rect x="28" y="40" width="8" height="13" fill="#451a03"/><rect x="20" y="35" width="6" height="6" fill="#fde047"/><rect x="38" y="35" width="6" height="6" fill="#fde047"/></svg>`,
+      // 6. Winter train ticket
+      6: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M10 22 H54 V28 A4 4 0 0 0 54 36 V42 H10 V36 A4 4 0 0 0 10 28 Z" fill="#fde68a" stroke="#991b1b" stroke-width="2.5"/><line x1="40" y1="22" x2="40" y2="42" stroke="#991b1b" stroke-width="2" stroke-dasharray="3 3"/><line x1="16" y1="29" x2="34" y2="29" stroke="#7f1d1d" stroke-width="2.5"/><line x1="16" y1="35" x2="29" y2="35" stroke="#b45309" stroke-width="2"/></svg>`,
+      // 7. Vintage compass
+      7: `<svg viewBox="0 0 64 64" width="100%" height="100%"><circle cx="32" cy="34" r="19" fill="#fffbeb" stroke="#f59e0b" stroke-width="3.5"/><circle cx="32" cy="12" r="3.5" fill="none" stroke="#fbbf24" stroke-width="2.5"/><polygon points="32,20 36,34 32,32 28,34" fill="#b91c1c"/><polygon points="32,48 36,34 32,36 28,34" fill="#1e293b"/><circle cx="32" cy="34" r="2.5" fill="#fbbf24"/></svg>`,
+      // 8. Gingerbread house
+      8: `<svg viewBox="0 0 64 64" width="100%" height="100%"><polygon points="32,12 12,30 52,30" fill="#b45309" stroke="#ffffff" stroke-width="3"/><rect x="16" y="30" width="32" height="23" rx="2" fill="#b45309" stroke="#fde68a" stroke-width="2"/><path d="M27 53 V41 A5 5 0 0 1 37 41 V53 Z" fill="#991b1b"/><circle cx="22" cy="37" r="2.5" fill="#10b981"/><circle cx="42" cy="37" r="2.5" fill="#fbbf24"/></svg>`,
+      // 9. Twinkling star
+      9: `<svg viewBox="0 0 64 64" width="100%" height="100%"><polygon points="32,7 39,23 57,24 43,36 48,53 32,43 16,53 21,36 7,24 25,23" fill="#fbbf24" stroke="#fffbeb" stroke-width="2"/><circle cx="32" cy="31" r="4.5" fill="#ffffff"/></svg>`,
+      // 10. Stack of books with tea
+      10: `<svg viewBox="0 0 64 64" width="100%" height="100%"><rect x="12" y="42" width="40" height="8" rx="2" fill="#991b1b" stroke="#fde68a" stroke-width="1.5"/><rect x="15" y="34" width="34" height="8" rx="2" fill="#15803d" stroke="#fde68a" stroke-width="1.5"/><path d="M24 20 H38 V29 C38 32, 35 34, 31 34 C27 34, 24 32, 24 29 Z" fill="#fffbeb"/><path d="M38 22 H42 A2.5 2.5 0 0 1 42 28 H38" fill="none" stroke="#fffbeb" stroke-width="2"/><path d="M29 15 Q28 11 30 9" stroke="#fde68a" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`,
+      // 11. Vintage lantern
+      11: `<svg viewBox="0 0 64 64" width="100%" height="100%"><polygon points="22,20 42,20 38,14 26,14" fill="#1e293b"/><circle cx="32" cy="11" r="3" fill="none" stroke="#fbbf24" stroke-width="2"/><rect x="21" y="20" width="22" height="28" rx="3" fill="rgba(253,224,71,0.35)" stroke="#fbbf24" stroke-width="2.5"/><path d="M32 27 C36 32, 35 38, 32 38 C29 38, 28 32, 32 27 Z" fill="#fde047"/><rect x="18" y="48" width="28" height="5" rx="2" fill="#1e293b"/></svg>`,
+      // 12. Gift box with ribbon
+      12: `<svg viewBox="0 0 64 64" width="100%" height="100%"><rect x="13" y="25" width="38" height="30" rx="4" fill="#b91c1c" stroke="#fffbeb" stroke-width="2"/><rect x="10" y="19" width="44" height="8" rx="3" fill="#991b1b" stroke="#fffbeb" stroke-width="2"/><rect x="29" y="19" width="6" height="36" fill="#fbbf24"/><path d="M32 19 C22 9, 16 19, 32 19 C48 19, 42 9, 32 19 Z" fill="none" stroke="#fbbf24" stroke-width="4"/></svg>`,
+      // 13. Snow globe
+      13: `<svg viewBox="0 0 64 64" width="100%" height="100%"><circle cx="32" cy="30" r="18" fill="rgba(224,242,254,0.32)" stroke="#ffffff" stroke-width="2.5"/><polygon points="32,18 23,35 41,35" fill="#15803d"/><rect x="18" y="46" width="28" height="8" rx="3" fill="#7f1d1d" stroke="#fbbf24" stroke-width="1.5"/><circle cx="25" cy="24" r="1.6" fill="#ffffff"/><circle cx="38" cy="26" r="1.6" fill="#ffffff"/><circle cx="32" cy="15" r="1.5" fill="#fde047"/></svg>`,
+      // 14. Polaroid camera
+      14: `<svg viewBox="0 0 64 64" width="100%" height="100%"><rect x="12" y="18" width="40" height="28" rx="5" fill="#fffbeb" stroke="#fbbf24" stroke-width="2"/><rect x="12" y="34" width="40" height="6" fill="#991b1b"/><circle cx="32" cy="29" r="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5"/><circle cx="32" cy="29" r="3" fill="#38bdf8"/><rect x="20" y="44" width="24" height="10" rx="1.5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/></svg>`,
+      // 15. Pine wreath
+      15: `<svg viewBox="0 0 64 64" width="100%" height="100%"><circle cx="32" cy="34" r="17" fill="none" stroke="#15803d" stroke-width="9"/><circle cx="32" cy="34" r="17" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-dasharray="4 6"/><circle cx="22" cy="23" r="2.8" fill="#dc2626"/><circle cx="42" cy="23" r="2.8" fill="#dc2626"/><circle cx="32" cy="50" r="3" fill="#fbbf24"/><path d="M26 16 L32 22 L38 16" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/></svg>`,
+      // 16. Warm candle
+      16: `<svg viewBox="0 0 64 64" width="100%" height="100%"><rect x="25" y="25" width="14" height="27" rx="2" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/><path d="M25 33 L39 39 M25 42 L39 48" stroke="#991b1b" stroke-width="2.5"/><path d="M32 10 C37 16, 36 22, 32 22 C28 22, 27 16, 32 10 Z" fill="#fbbf24"/><ellipse cx="32" cy="53" rx="14" ry="4" fill="#d97706"/></svg>`,
+      // 17. Warm scarf
+      17: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M18 22 H46 C49 22, 49 30, 46 30 H18 C15 30, 15 22, 18 22 Z" fill="#991b1b" stroke="#fffbeb" stroke-width="1.5"/><rect x="34" y="28" width="9" height="24" rx="2" fill="#991b1b" stroke="#fffbeb" stroke-width="1.5"/><line x1="34" y1="36" x2="43" y2="36" stroke="#fbbf24" stroke-width="3"/><line x1="34" y1="43" x2="43" y2="43" stroke="#15803d" stroke-width="3"/></svg>`,
+      // 18. Crescent moon over snowy hills
+      18: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M26 12 A11 11 0 1 0 38 25 A9 9 0 1 1 26 12 Z" fill="#fde047"/><path d="M8 46 Q24 32 40 46 T56 44 V54 H8 Z" fill="#ffffff"/><path d="M8 50 Q32 40 56 50 V54 H8 Z" fill="#bae6fd"/></svg>`,
+      // 19. Knitted mittens
+      19: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M18 44 V26 C18 18, 34 18, 34 26 V44 Z" fill="#15803d" stroke="#fffbeb" stroke-width="2"/><rect x="15" y="42" width="22" height="7" rx="3.5" fill="#991b1b"/><path d="M32 32 H39 A4 4 0 0 1 39 39 H34" fill="#15803d" stroke="#fffbeb" stroke-width="2"/><path d="M22 28 H30" stroke="#fde68a" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+      // 20. Hot cocoa with marshmallows
+      20: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M18 28 H44 V44 C44 50, 38 54, 31 54 C24 54, 18 50, 18 44 Z" fill="#14532d" stroke="#fde68a" stroke-width="2"/><path d="M44 32 H50 A4 4 0 0 1 50 42 H44" fill="none" stroke="#fde68a" stroke-width="3.5"/><rect x="22" y="22" width="8" height="6" rx="2" fill="#ffffff"/><rect x="32" y="21" width="8" height="7" rx="2" fill="#fffbeb"/></svg>`,
+      // 21. Winter forest
+      21: `<svg viewBox="0 0 64 64" width="100%" height="100%"><polygon points="22,16 10,44 34,44" fill="#15803d" stroke="#fde68a" stroke-width="1.5"/><polygon points="42,20 31,46 53,46" fill="#166534" stroke="#ffffff" stroke-width="1.5"/><rect x="20" y="44" width="4" height="8" fill="#78350f"/><rect x="40" y="46" width="4" height="7" fill="#78350f"/><ellipse cx="32" cy="53" rx="24" ry="3.5" fill="#ffffff"/></svg>`,
+      // 22. Sleigh
+      22: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M13 42 L19 26 H49 L52 42 Z" fill="#991b1b" stroke="#fde68a" stroke-width="2"/><path d="M10 49 Q32 53 55 45" fill="none" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round"/><rect x="25" y="16" width="13" height="10" rx="2" fill="#15803d" stroke="#ffffff" stroke-width="1.5"/></svg>`,
+      // 23. Clock at midnight
+      23: `<svg viewBox="0 0 64 64" width="100%" height="100%"><circle cx="32" cy="32" r="20" fill="#fffbeb" stroke="#fbbf24" stroke-width="3.5"/><circle cx="32" cy="32" r="2.5" fill="#991b1b"/><line x1="32" y1="32" x2="32" y2="18" stroke="#991b1b" stroke-width="3" stroke-linecap="round"/><line x1="32" y1="32" x2="32" y2="22" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/><circle cx="32" cy="15" r="1.5" fill="#991b1b"/><circle cx="49" cy="32" r="1.5" fill="#1e293b"/><circle cx="32" cy="49" r="1.5" fill="#1e293b"/><circle cx="15" cy="32" r="1.5" fill="#1e293b"/></svg>`,
+      // 24. Golden trophy & sparkler
+      24: `<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M20 14 H44 V26 C44 34, 38 40, 32 40 C26 40, 20 34, 20 26 Z" fill="#fbbf24" stroke="#fffbeb" stroke-width="2"/><rect x="29" y="40" width="6" height="10" fill="#d97706"/><rect x="22" y="50" width="20" height="6" rx="3" fill="#991b1b"/><polygon points="32,19 34,24 39,24 35,27 36,32 32,29 28,32 29,27 25,24 30,24" fill="#ffffff"/></svg>`
+    };
+
+    // =========================================================================
+    // 24 COZY ADULT ENGLISH TASKS (CEFR LEVEL A2+–B1)
+    // Categories: "Storytelling & Memories" | "Cozy Debates" | "Mindful Reflection" | "Creative Prompt" | "Real-Life English"
+    // =========================================================================
+    const ADVENT_DAYS = [
+      {
+        day: 1,
+        title: "Slow December Morning",
+        category: "Mindful Reflection",
+        duration: "8 mins",
+        mission: "Describe your ideal slow December morning using sensory details—sounds, smells, and textures—in 5–6 connected sentences. Focus on creating a calm, vivid atmosphere.",
+        vocabBoost: {
+          phrases: ["curl up with", "the aroma of", "chilly outside", "at my own pace", "wrap up in"],
+          starter: "On my ideal December morning, I wake up without an alarm and immediately notice the aroma of..."
+        }
+      },
+      {
+        day: 2,
+        title: "Unpopular Winter Opinion",
+        category: "Cozy Debates",
+        duration: "8 mins",
+        mission: "Defend a slightly controversial cozy opinion (for example: 'Cold rainy evenings are better than snow', 'Winter movies beat summer blockbusters', or 'Hot tea is superior to coffee'). Give two clear reasons to persuade a friend.",
+        vocabBoost: {
+          phrases: ["to be honest", "what people overlook is", "on top of that", "far more underrated", "at the end of the day"],
+          starter: "It might sound like an unpopular opinion, but I genuinely believe that..."
+        }
+      },
+      {
+        day: 3,
+        title: "Soundtrack to a Winter Scene",
+        category: "Creative Prompt",
+        duration: "8 mins",
+        mission: "Pick a song you love and imagine it playing in a winter movie. Describe the exact scene in 5–6 sentences: Who is there, where are they walking or sitting, and what is the emotional mood?",
+        vocabBoost: {
+          phrases: ["sets the mood", "in the background", "slowly fades in", "bittersweet feeling", "as the camera pans"],
+          starter: "If this song were in a movie, it would play during a quiet evening scene where..."
+        }
+      },
+      {
+        day: 4,
+        title: "Tiny Time Capsule",
+        category: "Storytelling & Memories",
+        duration: "9 mins",
+        mission: "Write a 5-sentence note or record a short voice memo to yourself from 3 years ago. Explain what has changed for the better in your life, mindset, or daily routine.",
+        vocabBoost: {
+          phrases: ["looking back", "it turns out", "you used to worry about", "grow out of", "peace of mind"],
+          starter: "If I could send a quick message to myself three years ago, I would say: don't stress so much because..."
+        }
+      },
+      {
+        day: 5,
+        title: "The Art of Hygge at Home",
+        category: "Real-Life English",
+        duration: "8 mins",
+        mission: "Give a mini 'room-tour' description of one favorite corner at home (a reading chair, kitchen table, or windowsill) and explain why it helps you unwind after a long day.",
+        vocabBoost: {
+          phrases: ["unwind after work", "soft lighting", "tucked away in", "brings a sense of calm", "within arm's reach"],
+          starter: "My favorite corner to unwind at home is right next to..., where I always keep..."
+        }
+      },
+      {
+        day: 6,
+        title: "Mini-Story: The Wrong Train Ticket",
+        category: "Storytelling & Memories",
+        duration: "15 mins",
+        mission: "Continue this winter mystery in 6–8 sentences using Past Simple and Past Continuous: 'Snow was falling heavily when I realized I had boarded the wrong evening train. Across the aisle, a stranger was holding an identical red envelope...'",
+        vocabBoost: {
+          phrases: ["all of a sudden", "while I was looking", "caught my eye", "figured out", "turned out to be"],
+          starter: "While the train was pulling out of the station, I glanced down at my ticket and realized..."
+        }
+      },
+      {
+        day: 7,
+        title: "Ideal Zero-Budget Sunday",
+        category: "Real-Life English",
+        duration: "15 mins",
+        mission: "Plan a completely free, cozy winter Sunday for a close friend visiting your city. Pitch the full itinerary from morning to evening using persuasive, welcoming language.",
+        vocabBoost: {
+          phrases: ["wander around", "kick off the morning", "hidden gem", "soak up the atmosphere", "wind down"],
+          starter: "Since we don't need to spend a cent to have a great day, we'll kick off Sunday morning by..."
+        }
+      },
+      {
+        day: 8,
+        title: "Comfort Food in 5 Steps",
+        category: "Real-Life English",
+        duration: "8 mins",
+        mission: "Explain how to make your go-to warm drink or winter comfort snack in 5 clear steps. Use sequencing linkers so anyone could follow your recipe easily.",
+        vocabBoost: {
+          phrases: ["first of all", "simmer gently", "stir in", "once it's ready", "top it off with"],
+          starter: "Whenever I need something comforting on a cold evening, I make..., and first of all, you..."
+        }
+      },
+      {
+        day: 9,
+        title: "Two Truths & A Winter Wish",
+        category: "Storytelling & Memories",
+        duration: "7 mins",
+        mission: "Write or say two true things that happened to you this year and one realistic wish for next year. Then expand on the backstory of one of the true events in 3–4 sentences.",
+        vocabBoost: {
+          phrases: ["believe it or not", "out of the blue", "looking forward to", "fingers crossed", "ended up"],
+          starter: "Two of these happened to me this year, and one is my wish for next year—let me tell you the story behind..."
+        }
+      },
+      {
+        day: 10,
+        title: "Spoiler-Free 60-Second Pitch",
+        category: "Real-Life English",
+        duration: "9 mins",
+        mission: "Recommend a book, series, podcast, or game you enjoyed recently in about 60 seconds (6–7 sentences) without giving away any spoilers. Explain who would love it and why.",
+        vocabBoost: {
+          phrases: ["hooked from the start", "without giving too much away", "set in", "worth checking out", "if you're into"],
+          starter: "Without giving too much away, this story is set in... and it had me hooked from the very start because..."
+        }
+      },
+      {
+        day: 11,
+        title: "Small Talk Upgrade",
+        category: "Real-Life English",
+        duration: "7 mins",
+        mission: "Take three standard small-talk questions ('How are you?', 'Any weekend plans?', 'Cold today, isn't it?') and invent warmer, more engaging B1 alternatives that spark real conversations.",
+        vocabBoost: {
+          phrases: ["break the ice", "what's been the highlight of", "keeping you busy", "on the bright side", "catch up properly"],
+          starter: "Instead of asking a routine 'How are you?', a much warmer way to break the ice is to ask..."
+        }
+      },
+      {
+        day: 12,
+        title: "A Gift That Costs Nothing",
+        category: "Mindful Reflection",
+        duration: "8 mins",
+        mission: "Describe the best non-material gift someone could give you—such as uninterrupted time, teaching you a skill, a shared winter walk, or a custom playlist—and explain why it matters.",
+        vocabBoost: {
+          phrases: ["means the world to me", "thoughtful gesture", "money can't buy", "put effort into", "cherish"],
+          starter: "For me, the most meaningful gift doesn't come in a box; it would be..."
+        }
+      },
+      {
+        day: 13,
+        title: "Movie Night vs. Night Market",
+        category: "Cozy Debates",
+        duration: "15 mins",
+        mission: "Compare two classic December evening vibes: staying in under a warm blanket watching films versus exploring lively, chilly festive markets. Use comparative structures and decide which wins for you.",
+        vocabBoost: {
+          phrases: ["on the one hand", "whereas", "nowhere near as stressful as", "depends on my mood", "all things considered"],
+          starter: "On the one hand, staying in under a blanket is far more relaxing, whereas exploring a night market..."
+        }
+      },
+      {
+        day: 14,
+        title: "Behind-the-Scenes Photo Story",
+        category: "Storytelling & Memories",
+        duration: "15 mins",
+        mission: "Scroll through your phone gallery and pick one photo from this autumn or winter. Tell the 'behind-the-scenes' story of that moment: what happened just before and after you took it.",
+        vocabBoost: {
+          phrases: ["captures the moment", "right before this", "we hadn't planned to", "in hindsight", "brings back memories of"],
+          starter: "At first glance, this looks like a simple photo, but right before I took it..."
+        }
+      },
+      {
+        day: 15,
+        title: "Gratitude Snapshot",
+        category: "Mindful Reflection",
+        duration: "7 mins",
+        mission: "Name 3 small, ordinary things from this week that quietly made your day easier or brighter—a helpful message, a smooth commute, or a good song—and explain why you appreciated them.",
+        vocabBoost: {
+          phrases: ["take for granted", "lifted my mood", "brightened up", "small mercies", "made all the difference"],
+          starter: "It's easy to take little things for granted, so today I want to appreciate three small moments..."
+        }
+      },
+      {
+        day: 16,
+        title: "Warm Advice Column",
+        category: "Real-Life English",
+        duration: "9 mins",
+        mission: "Read this dilemma: 'My friend feels exhausted before the holidays and dreads noisy parties, but doesn't want to disappoint people.' Write a supportive, practical 5-sentence reply.",
+        vocabBoost: {
+          phrases: ["if I were in your shoes", "set gentle boundaries", "burn out", "politely turn down", "recharge your batteries"],
+          starter: "It's completely understandable to feel overwhelmed this time of year; if I were in your shoes, I would..."
+        }
+      },
+      {
+        day: 17,
+        title: "If December Were a Person",
+        category: "Creative Prompt",
+        duration: "8 mins",
+        mission: "Personify the month of December as a character sitting across from you in a café. Describe what they wear, what they order, how they speak, and what their personality is like.",
+        vocabBoost: {
+          phrases: ["comes across as", "dressed in", "soft-spoken", "has a knack for", "down-to-earth"],
+          starter: "If December walked into a café today, they would be wearing... and would come across as..."
+        }
+      },
+      {
+        day: 18,
+        title: "Planned vs. Spontaneous Trips",
+        category: "Cozy Debates",
+        duration: "9 mins",
+        mission: "5-Minute Micro-Debate: 'Is it better to plan every detail of a winter trip or travel spontaneously?' Present one strong argument for each side and give your personal verdict.",
+        vocabBoost: {
+          phrases: ["play it by ear", "peace of mind", "miss out on", "striking a balance", "personally, I lean toward"],
+          starter: "While planning ahead gives you peace of mind, playing it by ear allows you to..."
+        }
+      },
+      {
+        day: 19,
+        title: "Scent & Memory Connection",
+        category: "Storytelling & Memories",
+        duration: "8 mins",
+        mission: "Describe a specific winter smell—cinnamon, fresh pine, crisp frosty air, roasted coffee, or old paper books—that instantly takes you back to a vivid memory.",
+        vocabBoost: {
+          phrases: ["takes me straight back to", "reminds me of", "vividly remember", "linger in the air", "tied to"],
+          starter: "The moment I catch the scent of..., it takes me straight back to..."
+        }
+      },
+      {
+        day: 20,
+        title: "Design Your Dream Winter Café",
+        category: "Creative Prompt",
+        duration: "15 mins",
+        mission: "Invent your ideal winter café from scratch. Give it a memorable name, describe its signature drink, the background playlist, the seating, and one quirky 'house rule' for guests.",
+        vocabBoost: {
+          phrases: ["tucked away", "signature drink", "warm atmosphere", "house rule", "regulars"],
+          starter: "My dream winter café would be called..., and the one house rule on the door would be..."
+        }
+      },
+      {
+        day: 21,
+        title: "Year-End Plot Twists",
+        category: "Storytelling & Memories",
+        duration: "15 mins",
+        mission: "Look back over the past twelve months and describe one unexpected detour, change of plans, or surprise that initially felt uncertain but turned out to be a valuable lesson.",
+        vocabBoost: {
+          phrases: ["blessing in disguise", "didn't go according to plan", "step out of my comfort zone", "taught me that", "grateful it happened"],
+          starter: "Earlier this year, something didn't go according to plan, yet it turned out to be a blessing in disguise..."
+        }
+      },
+      {
+        day: 22,
+        title: "40-Minute Digital Detox Ritual",
+        category: "Mindful Reflection",
+        duration: "8 mins",
+        mission: "Design a 40-minute screen-free evening ritual for tonight. Explain what you would do instead of scrolling on your phone and how you think it would affect your sleep or mood.",
+        vocabBoost: {
+          phrases: ["switch off", "instead of scrolling", "clear my head", "wind down before bed", "make time for"],
+          starter: "For forty minutes tonight, I'm going to put my phone in another room and instead..."
+        }
+      },
+      {
+        day: 23,
+        title: "Wishes Beyond 'Happy Holidays'",
+        category: "Real-Life English",
+        duration: "9 mins",
+        mission: "Write three personalized, heartfelt 2-sentence holiday messages: one for a close friend, one for a colleague or teacher, and one encouraging note for yourself.",
+        vocabBoost: {
+          phrases: ["thankful for your support", "well-deserved break", "here's to", "keep up the momentum", "warmest wishes"],
+          starter: "For my friend: Thank you for always being there this year—here's to..."
+        }
+      },
+      {
+        day: 24,
+        title: "The Year-End Personal Awards",
+        category: "Mindful Reflection",
+        duration: "10 mins",
+        mission: "Congratulations on completing all 24 days! Crown three personal highlights of your year—'Best Discovery', 'Proudest Moment', and 'Favorite Place'—and explain why each earned its trophy.",
+        vocabBoost: {
+          phrases: ["hands down", "stands out as", "paid off", "looking back with pride", "raise a glass to"],
+          starter: "As the year wraps up, my award for 'Proudest Moment' goes hands down to..."
+        }
+      }
+    ];
+
+    // =========================================================================
+    // STATE MANAGEMENT & LOCALSTORAGE PERSISTENCE
+    // =========================================================================
+    const STORAGE_KEY = "cozy_advent_a2plus_b1_v1";
+    const DOOR_THEMES = ["theme-cranberry", "theme-pine", "theme-honey", "theme-velvet"];
+
+    let state = {
+      opened: [],
+      completed: [],
+      previewAll: false
+    };
+
+    let activeDay = null;
+
+    // DOM Elements
+    const calendarGrid = document.getElementById("calendarGrid");
+    const progressText = document.getElementById("progressText");
+    const progressFill = document.getElementById("progressFill");
+    const previewToggle = document.getElementById("previewToggle");
+    const resetBtn = document.getElementById("resetBtn");
+    const confirmBar = document.getElementById("confirmBar");
+    const confirmYes = document.getElementById("confirmYes");
+    const confirmNo = document.getElementById("confirmNo");
+    const toast = document.getElementById("toast");
+
+    // Modal DOM
+    const modalBackdrop = document.getElementById("modalBackdrop");
+    const modalClose = document.getElementById("modalClose");
+    const modalArt = document.getElementById("modalArt");
+    const modalDay = document.getElementById("modalDay");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalDuration = document.getElementById("modalDuration");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMission = document.getElementById("modalMission");
+    const vocabToggle = document.getElementById("vocabToggle");
+    const vocabContent = document.getElementById("vocabContent");
+    const vocabList = document.getElementById("vocabList");
+    const vocabStarter = document.getElementById("vocabStarter");
+    const btnComplete = document.getElementById("btnComplete");
+
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (saved) {
+          state.opened = Array.isArray(saved.opened) ? saved.opened : [];
+          state.completed = Array.isArray(saved.completed) ? saved.completed : [];
+          state.previewAll = Boolean(saved.previewAll);
+        }
+      } catch (err) {
+        console.warn("Could not read localStorage:", err);
+      }
+      previewToggle.checked = state.previewAll;
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (err) {
+        console.warn("Could not save to localStorage:", err);
+      }
+    }
+
+    function isDayUnlocked(dayNumber) {
+      if (state.previewAll) return true;
+      const now = new Date();
+      // Month 11 = December
+      if (now.getMonth() === 11) {
+        return now.getDate() >= dayNumber;
+      }
+      return false;
+    }
+
+    function isToday(dayNumber) {
+      const now = new Date();
+      return now.getMonth() === 11 && now.getDate() === dayNumber;
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
+    }
+
+    function updateProgress() {
+      const count = state.completed.length;
+      const total = ADVENT_DAYS.length;
+      const pct = Math.round((count / total) * 100);
+      progressText.textContent = `${count} / ${total} Completed`;
+      progressFill.style.width = `${pct}%`;
+    }
+
+    function renderGrid() {
+      calendarGrid.innerHTML = "";
+
+      ADVENT_DAYS.forEach((item, index) => {
+        const unlocked = isDayUnlocked(item.day);
+        const opened = state.opened.includes(item.day);
+        const completed = state.completed.includes(item.day);
+        const themeClass = DOOR_THEMES[index % DOOR_THEMES.length];
+
+        const door = document.createElement("button");
+        door.type = "button";
+        door.className = `door ${themeClass}`;
+        if (!unlocked) door.classList.add("locked");
+        if (opened) door.classList.add("opened");
+        if (completed) door.classList.add("completed");
+        if (isToday(item.day)) door.classList.add("today-highlight");
+
+        let statusIcon = "🔒";
+        let footerTag = "Locked";
+        let labelText = `Dec ${item.day}`;
+
+        if (completed) {
+          statusIcon = "⭐";
+          footerTag = "Completed";
+          labelText = item.title;
+        } else if (opened) {
+          statusIcon = "🕯️";
+          footerTag = item.category;
+          labelText = item.title;
+        } else if (unlocked) {
+          statusIcon = "✨";
+          footerTag = "Unwrap";
+          labelText = "Tap to Open";
+        }
+
+        door.innerHTML = `
+          <div class="door-header">
+            <span class="door-num">${item.day}</span>
+            <span class="door-status" aria-hidden="true">${statusIcon}</span>
+          </div>
+          <div class="door-art" aria-hidden="true">${COZY_SVGS[item.day]}</div>
+          <div class="door-title">${labelText}</div>
+          <div class="door-tag">${footerTag}</div>
+        `;
+
+        door.addEventListener("click", () => {
+          if (!unlocked) {
+            door.classList.remove("shake");
+            void door.offsetWidth;
+            door.classList.add("shake");
+            showToast(`🔒 Day ${item.day} unlocks on Dec ${item.day} (or toggle Preview below!)`);
+            return;
+          }
+
+          if (!state.opened.includes(item.day)) {
+            state.opened.push(item.day);
+            saveState();
+            renderGrid();
+          }
+
+          openModal(item);
+        });
+
+        calendarGrid.appendChild(door);
+      });
+
+      updateProgress();
+    }
+
+    function openModal(item) {
+      activeDay = item.day;
+      modalArt.innerHTML = COZY_SVGS[item.day];
+      modalDay.textContent = `Day ${item.day}`;
+      modalCategory.textContent = item.category;
+      modalDuration.textContent = `⏱ ${item.duration}`;
+      modalTitle.textContent = item.title;
+      modalMission.textContent = item.mission;
+
+      // Populate B1 Phrases & Connectors
+      vocabList.innerHTML = "";
+      item.vocabBoost.phrases.forEach((phrase) => {
+        const chip = document.createElement("span");
+        chip.className = "vocab-chip";
+        chip.textContent = phrase;
+        vocabList.appendChild(chip);
+      });
+      vocabStarter.textContent = `"${item.vocabBoost.starter}"`;
+      vocabContent.classList.remove("visible");
+
+      updateCompleteButton();
+      modalBackdrop.classList.add("active");
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove("active");
+      activeDay = null;
+    }
+
+    function updateCompleteButton() {
+      const isDone = state.completed.includes(activeDay);
+      if (isDone) {
+        btnComplete.textContent = "⭐ Mission Completed! (Click to Undo)";
+        btnComplete.classList.add("is-done");
+      } else {
+        btnComplete.textContent = "🎄 Mark Mission Complete";
+        btnComplete.classList.remove("is-done");
+      }
+    }
+
+    // Event Listeners
+    btnComplete.addEventListener("click", () => {
+      if (activeDay === null) return;
+      const idx = state.completed.indexOf(activeDay);
+      if (idx === -1) {
+        state.completed.push(activeDay);
+        launchConfetti();
+        showToast(`🎉 Wonderful work! Day ${activeDay} completed!`);
+      } else {
+        state.completed.splice(idx, 1);
+      }
+      saveState();
+      updateCompleteButton();
+      renderGrid();
+    });
+
+    vocabToggle.addEventListener("click", () => {
+      vocabContent.classList.toggle("visible");
+    });
+
+    modalClose.addEventListener("click", closeModal);
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modalBackdrop.classList.contains("active")) {
+        closeModal();
+      }
+    });
+
+    previewToggle.addEventListener("change", (e) => {
+      state.previewAll = e.target.checked;
+      saveState();
+      renderGrid();
+      showToast(state.previewAll ? "✨ Preview Mode ON: All 24 days unlocked!" : "🔒 December Date Lock ON");
+    });
+
+    // Inline confirmation bar in footer
+    resetBtn.addEventListener("click", () => {
+      resetBtn.style.display = "none";
+      confirmBar.classList.add("visible");
+    });
+
+    confirmNo.addEventListener("click", () => {
+      confirmBar.classList.remove("visible");
+      resetBtn.style.display = "inline-block";
+    });
+
+    confirmYes.addEventListener("click", () => {
+      state.opened = [];
+      state.completed = [];
+      saveState();
+      renderGrid();
+      confirmBar.classList.remove("visible");
+      resetBtn.style.display = "inline-block";
+      showToast("❄️ Calendar progress reset!");
+    });
+
+    // =========================================================================
+    // FESTIVE SNOWFALL & CONFETTI CELEBRATION ANIMATIONS
+    // =========================================================================
+    const snowCanvas = document.getElementById("snowCanvas");
+    const snowCtx = snowCanvas.getContext("2d");
+    let snowflakes = [];
+
+    const confettiCanvas = document.getElementById("confettiCanvas");
+    const confettiCtx = confettiCanvas.getContext("2d");
+    let confettiPieces = [];
+
+    function resizeCanvases() {
+      snowCanvas.width = window.innerWidth;
+      snowCanvas.height = window.innerHeight;
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+
+    function initSnow() {
+      const count = Math.min(85, Math.floor(window.innerWidth / 16));
+      snowflakes = Array.from({ length: count }, () => ({
+        x: Math.random() * snowCanvas.width,
+        y: Math.random() * snowCanvas.height,
+        r: Math.random() * 3 + 1.2,
+        speedY: Math.random() * 0.75 + 0.3,
+        speedX: Math.random() * 0.45 - 0.22,
+        opacity: Math.random() * 0.6 + 0.25
+      }));
+    }
+
+    function launchConfetti() {
+      const colors = ["#991b1b", "#15803d", "#fbbf24", "#fffbeb", "#f59e0b", "#34d399"];
+      for (let i = 0; i < 95; i++) {
+        confettiPieces.push({
+          x: confettiCanvas.width / 2 + (Math.random() * 140 - 70),
+          y: confettiCanvas.height / 2,
+          w: Math.random() * 9 + 5,
+          h: Math.random() * 5 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 13,
+          vy: (Math.random() - 0.85) * 13,
+          rot: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 11,
+          life: 115
+        });
+      }
+    }
+
+    function animate() {
+      snowCtx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
+      snowflakes.forEach((f) => {
+        f.y += f.speedY;
+        f.x += f.speedX;
+        if (f.y > snowCanvas.height) {
+          f.y = -5;
+          f.x = Math.random() * snowCanvas.width;
+        }
+        if (f.x > snowCanvas.width) f.x = 0;
+        if (f.x < 0) f.x = snowCanvas.width;
+
+        snowCtx.beginPath();
+        snowCtx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        snowCtx.fillStyle = `rgba(255, 255, 255, ${f.opacity})`;
+        snowCtx.fill();
+      });
+
+      if (confettiPieces.length > 0) {
+        confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        confettiPieces = confettiPieces.filter((p) => p.life > 0);
+        confettiPieces.forEach((p) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.3;
+          p.rot += p.rotSpeed;
+          p.life -= 1;
+
+          confettiCtx.save();
+          confettiCtx.translate(p.x, p.y);
+          confettiCtx.rotate((p.rot * Math.PI) / 180);
+          confettiCtx.fillStyle = p.color;
+          confettiCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          confettiCtx.restore();
+        });
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", () => {
+      resizeCanvases();
+      initSnow();
+    });
+
+    window.onload = function () {
+      resizeCanvases();
+      initSnow();
+      loadState();
+      renderGrid();
+      animate();
+    };
+  </script>
+</body>
+</html>
